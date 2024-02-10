@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shayari</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+</head>
+
+<body>
+  <div class="container">
+    <h1>My Poems</h1>
+    <a id="newPostBtn" href="/new">New Shayari</a>
+    <ul id="postsList">
+      <% shayaris.forEach(shayari=> { %>
+        <li>
+          <h2>
+            <%=shayari.title%>
+          </h2>
+          <small>
+            <%=shayari.date %>
+          </small>
+          <p>
+            <%=shayari.content%>
+          </p>
+          <small>By: <%=shayari.author%> </small>
+          <a class="edit" href="/edit/<%= shayari.id %>">Edit</a>
+          <a class="delete" href="/api/shayaris/delete/<%= shayari.id %>">Delete</a>
+        </li>
+        <% }); %>
+    </ul>
+  </div>
+
+</body>
+
+</html>
